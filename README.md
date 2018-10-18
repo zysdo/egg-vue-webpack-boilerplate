@@ -1,6 +1,6 @@
 # egg-vue-webpack-boilerplate
 
-基于 Egg + Vue + Webpack4 多页面服务端渲染项目开发模板
+基于 Egg + Vue + Webpack4 多页面服务端渲染项目开发模板 111
 
 
 ## 版本
@@ -10,11 +10,11 @@
 - Webpack 版本: ^4.x.x, 对应 `easywebpack-vue` 版本为 ^4.x.x
 - Vue 版本: ^2.5.0
 
-## 说明 
+## 说明
 
 - Egg + TypeScript 已初步支持， 包括 Node 端 typescript 编写 和 前端 TypeScript编写, 具体请见(https://github.com/hubcarl/egg-vue-typescript-boilerplate)项目
 - 项目开发之前, 请阅读[Egg + Vue 服务端渲染开发指南](https://zhuanlan.zhihu.com/p/30445536) 和 [Egg + Vue 服务端渲染工程化实现](https://zhuanlan.zhihu.com/p/29838551)
-- 版本变更情况请看发布版本说明[RELEASE](RELEASE.md) 
+- 版本变更情况请看发布版本说明[RELEASE](RELEASE.md)
 - 如果你需要了解 Egg+Vue+Webpack 项目更多信息，请扫以下二维码加好友，请备注：Node.js
 
 ![hubcarl](https://avatars3.githubusercontent.com/u/4983042?v=4&u=0befb64a57a7911c630b7f97df5632385b08da2a&s=250)
@@ -57,14 +57,14 @@
 
 - 支持vue 2.3 官方VueSSRPlugin实现方案,代码分支[feature/VueSSRPlugin](https://github.com/hubcarl/egg-vue-webpack-boilerplate/tree/feature/VueSSRPlugin)
 
- 
+
 
 ## 2.依赖
 
-- [easywebpack](https://github.com/hubcarl/easywebpack) 
-- [easywebpack-vue](https://github.com/hubcarl/easywebpack) 
+- [easywebpack](https://github.com/hubcarl/easywebpack)
+- [easywebpack-vue](https://github.com/hubcarl/easywebpack)
 - [egg-view-vue-ssr](https://github.com/hubcarl/egg-view-vue-ssr)
-- [egg-webpack](https://github.com/hubcarl/egg-webpack) 
+- [egg-webpack](https://github.com/hubcarl/egg-webpack)
 - [egg-webpack-vue](https://github.com/hubcarl/egg-webpack-vue)
 
 
@@ -101,24 +101,24 @@ npm run dev
 - 首先在本地或者ci构建好jsbundle文件
 
 ```bash
-npm run build 
+npm run build
 ```
 
 - 然后,启动应用
 
 ```bash
-npm start 
+npm start
 ```
 
 ## 4. 配置说明(支持三种方式)
 
-#### 4.1 方式一: `easywebpack-cli` 根据  `webpack.config.js` 自动创建Webpack Config 
+#### 4.1 方式一: `easywebpack-cli` 根据  `webpack.config.js` 自动创建Webpack Config
 
 ```js
-`config/config.local.js` 
+`config/config.local.js`
 const EasyWebpack = require('easywebpack-vue');
 exports.webpack = {
-    webpackConfigList:EasyWebpack.getWebpackConfig() 
+    webpackConfigList:EasyWebpack.getWebpackConfig()
   };
 ```
 
@@ -127,7 +127,7 @@ exports.webpack = {
 编写配置请见 tag `1.0.0`  build目录代码实现
 
 ```js
-`config/config.local.js` 
+`config/config.local.js`
 exports.webpack = {
     webpackConfigList: [
       require(path.join(app.baseDir, 'build/client')), // http://127.0.0.1:9000
@@ -141,7 +141,7 @@ exports.webpack = {
 [egg npm start 启动开启多进程编译](http://hubcarl.github.io/easywebpack/vue/version/)
 
 
-构建会同时启动两个 webpack 构建服务, 客户端js构建(build/client), 服务端构建(build/server), 默认端口9000,  webpackConfigList 端口依次递增. 
+构建会同时启动两个 webpack 构建服务, 客户端js构建(build/client), 服务端构建(build/server), 默认端口9000,  webpackConfigList 端口依次递增.
 
 
 ## 5. 项目结构和基本规范
@@ -209,7 +209,7 @@ exports.webpack = {
     │               └── toast.vue
     ├── build                                   //  webpack 自定义配置入口, 会与默认配置进行合并(看似这么多,其实这里只是占个位说明一下)
     │   ├── base
-    │   │   └── index.js                        // 公共配置        
+    │   │   └── index.js                        // 公共配置
     │   ├──  client                             // 客户端webpack编译配置
     │   │   ├── dev.js
     │   │   ├── prod.js
@@ -286,7 +286,7 @@ exports.webpack = {
 
 
 #### 6.1.2 多页面后端渲染实现, 通过 `egg-view-vue-ssr` 插件 `render` 方法实现
-  
+
 - 创建controller文件home.js
 
 ```javascript
@@ -301,7 +301,7 @@ exports.index = function* (ctx) {
 app.get('/home', app.controller.home.home.index);
 ```
 
-#### 6.1.3 多页面走前端渲染(后端路由)实现, 通过 `egg-view-vue-ssr` 插件 `renderClient` 方法实现  
+#### 6.1.3 多页面走前端渲染(后端路由)实现, 通过 `egg-view-vue-ssr` 插件 `renderClient` 方法实现
 
 - 创建controller文件home.js
 
